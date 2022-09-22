@@ -263,3 +263,10 @@
 .categorizador {
     height: 20vh;
 }
+
+.presentacion {
+    width: 10rem;
+    height: 30rem;
+    background-color: rgb(233, 221, 167);
+    margin: 10px;
+}

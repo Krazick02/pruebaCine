@@ -17,12 +17,12 @@ const myApp = createApp({
         getPeliculas() {
             fetch('https://api.themoviedb.org/3/movie/popular?api_key=038eb1b67a577ce9afaf326a641856f8&language=en-US')
                 .then((response) => response.json())
-                .then((res) => (this.popular = res.results,console.log(res.results)))
+                .then((res) => (this.popular = res.results, console.log(res.results)))
                 .catch((error) => console.log('error', error));
         }
     },
     mounted() {
+        localStorage.setItem('media_type', 'movie')
         this.getPeliculas()
-        
     }
-}).mount('#popular')
+}).mount('#popularP')

@@ -58,8 +58,6 @@
                     <input type="text" v-model='busqueda' id="busqueda"> en
                     <button @click="tv" class="btn btn-success">Series</button>
                     <button @click="movie" class="btn btn-success">Películas</button>
-                    <!-- <button @click="palabra" class="btn btn-success">Palabras Clave</button>
-                    <button @click="movie" class="btn btn-success">Categorias</button> -->
                 </h5>
             </div>
             <div class="row portador">
@@ -76,20 +74,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="targeta" v-for="p in resultado">
-            <div class="text-center">
-                <img class="poster" v-bind:src="imgRoute + p.poster_path" width="100" src=>
-            </div>
-            <div>
-                <p style="color:black">{{p.name}}</p>
-                <p style="color:black">{{p.title}}</p>
-                <p style="color:black">{{p.release_date}}</p>
-                <p style="color:black">{{p.first_air_date}}</p>
-            </div>
-            <div class="text-center">
-                <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
-            </div>
-        </div> -->
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>

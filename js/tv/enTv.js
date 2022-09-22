@@ -22,6 +22,7 @@ const myApp = createApp({
         }
     },
     mounted() {
+        localStorage.setItem('media_type', 'tv')
         this.getpoTv()
     }
 }).mount('#poTv')

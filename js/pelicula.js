@@ -23,7 +23,7 @@ const myApp = createApp({
                 id: '',
                 revenue: ''
             },
-            baseyt:'https://www.youtube.com/watch?v=',
+            baseyt: 'https://www.youtube.com/watch?v=',
             videos: null,
             reparto: {
                 cast: null,
@@ -61,24 +61,23 @@ const myApp = createApp({
         back() {
             window.location.href = '../html/home.html';
         },
-        getvideo(id,media) {
-            var url = 'https://api.themoviedb.org/3/'+media+'/' + id + '/videos?api_key=038eb1b67a577ce9afaf326a641856f8&language=en-US'
-            console.log('serie : '+url)
+        getvideo(id, media) {
+            var url = 'https://api.themoviedb.org/3/' + media + '/' + id + '/videos?api_key=038eb1b67a577ce9afaf326a641856f8&language=en-US'
+            console.log('serie : ' + url)
             fetch(url)
                 .then((response) => response.json())
                 .then(res => {
-                    let vid=[];
+                    let vid = [];
                     res.results.forEach(v => {
-                        if(v.site=='YouTube' && v.type=='Trailer'){
+                        if (v.site == 'YouTube' && v.type == 'Trailer') {
                             console.log(v)
                             vid.push(`
                             <iframe name='${v.name}' width="560" height="315" src="https://www.youtube.com/embed/${v.key}" 
                             title="${v.name}" frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>`
-                            )
+                            allowfullscreen></iframe>`)
                         }
-                        document.getElementById('overlay-content').innerHTML=vid.join('')
+                        document.getElementById('overlay-content').innerHTML = vid.join('')
                     });
                 })
                 .catch((error) => console.log('error', error));
@@ -167,7 +166,8 @@ const myApp = createApp({
                     (this.serie.tagline = res.tagline),
                     (this.serie.id = res.id),
                     (this.serie.type = res.type),
-                    (this.serie.status = res.status)
+                    (this.serie.status = res.status),
+                    console.log(res)
                 ))
                 .catch((error) => console.log('error', error));
         },
@@ -185,20 +185,18 @@ const myApp = createApp({
                 .then((res) => (this.recomendaciones = res.results))
                 .catch((error) => console.log('error', error));
         }
-
-
     },
     mounted() {
         let idOb = localStorage.getItem('id')
         this.media = localStorage.getItem('media_type')
         if (this.media == 'movie') {
-            this.getvideo(idOb,'movie')
+            this.getvideo(idOb, 'movie')
             this.getData(idOb)
             this.getCast(idOb)
             this.getRecomendaciones(idOb)
             this.getPalabrasMv(idOb)
         } else {
-            this.getvideo(idOb,'tv')
+            this.getvideo(idOb, 'tv')
             this.getPalabras(idOb)
             this.getDataTv(idOb)
             this.getRecomendacionesTv(idOb)

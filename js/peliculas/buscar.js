@@ -1,12 +1,11 @@
 const {
     createApp
 } = Vue
-
 const myApp = createApp({
     data() {
         return {
             resultado: '',
-            busqueda: 'bad boys',
+            busqueda: 'Superman',
             imgRoute: 'https://image.tmdb.org/t/p/w500'
         }
     },

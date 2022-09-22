@@ -11,59 +11,49 @@
 </head>
 
 <body class="yep">
-    <div class="contenedor" id="verPelis">
-        <div class="navBar">
-            <div>
-                <!-- logo themoviedb -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html"><img src="logo.png" alt="logo TMDB" class="img-fluid logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Películas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/html/Peliculas/pPopulares.html">Populares</a></li>
+                            <li><a class="dropdown-item" href="/html/Peliculas/pAhora.html">En cartelera hoy</a></li>
+                            <li><a class="dropdown-item" href="/html/Peliculas/pProximas.html">Próximamente</a></li>
+                            <li><a class="dropdown-item" href="/html/Peliculas/pValoradas.html">Mejor valoradas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Programas de televisión</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" @click="im" href="/html/Tv/populares.html">Populares</a></li>
+                            <li><a class="dropdown-item" href="/html/Tv/ahora.html">En emision hoy</a></li>
+                            <li><a class="dropdown-item" href="/html/Tv/enTv.html">En television</a></li>
+                            <li><a class="dropdown-item" href="/html/Tv/valoradas.html">Mejor valoradas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/html/personas/populares.html">Populares</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/html/Peliculas/categorias.html">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/html/Peliculas/buscar.html">Buscar</a>
+                    </li>
+                </ul>
             </div>
-            <div class="drop">
-                <button>Peliculas</button>
-                <div class="drop-cont">
-                    <a href="../html/Peliculas/pPopulares.html">Populares</a>
-                    <a href="../html/Peliculas/pAhora.html">En cartelera hoy</a>
-                    <a href="../html/Peliculas/pProximas.html">Próximamente</a>
-                    <a href="../html/Peliculas/pValoradas.html">Mejor valoradas</a>
-                </div>
-            </div>
-            <div class="drop">
-                <button>Programas de televisión</button>
-                <div class="drop-cont">
-                    <a href="../html/Tv/populares.html">Populares</a>
-                    <a href="../html/Tv/ahora.html">Se emiten hoy</a>
-                    <a href="../html/Tv/enTv.html">En televisión</a>
-                    <a href="../html/Tv/valoradas.html">Mejor valoradas</a>
-                </div>
-            </div>
-            <div class="drop">
-                <button>Personas</button>
-                <div class="drop-cont">
-                    <a href="../html/personas/populares.html">Populares</a>
-                </div>
-            </div>
-            <div class="drop">
-                <button>Más</button>
-                <div class="drop-cont">
-                    <a href="#">Discusiones</a>
-                    <a href="#">Tabla de Clasificación</a>
-                    <a href="#">Soporte</a>
-                    <a href="#">API</a>
-                </div>
-            </div>
-            <div>
-                <!-- logo mas -->
-            </div>
-            <div>
-                <!-- cambio de lenguaje -->
-            </div>
-            <!-- <div>
-                <button>
-                    <a href="login.html">
-                        Acceder
-                    </a>
-                </button>
-            </div> -->
         </div>
-
+    </nav>
+    <div class="contenedor" id="verPelis">
         <div class="contenedor">
             <div class="superior">
                 <div class="portada">

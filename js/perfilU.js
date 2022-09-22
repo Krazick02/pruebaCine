@@ -1,3 +1,4 @@
+
 const {
     createApp
 } = Vue
@@ -14,4 +15,5 @@ const myApp = createApp({
     },
     mounted() {
     }
+
 }).mount('#perfil')

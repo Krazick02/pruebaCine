@@ -1,176 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/peliculas.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        .logo {
+            width: 100px;
+        }
+    </style>
     <title>Detalles</title>
 </head>
 
-<body class="yep">
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html"><img src="logo.png" alt="logo TMDB" class="img-fluid logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Películas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/html/Peliculas/pPopulares.html">Populares</a></li>
+                            <li><a class="dropdown-item" href="/html/Peliculas/pAhora.html">En cartelera hoy</a></li>
+                            <li><a class="dropdown-item" href="/html/Peliculas/pProximas.html">Próximamente</a></li>
+                            <li><a class="dropdown-item" href="/html/Peliculas/pValoradas.html">Mejor valoradas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Programas de televisión</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" @click="im" href="/html/Tv/populares.html">Populares</a></li>
+                            <li><a class="dropdown-item" href="/html/Tv/ahora.html">En emision hoy</a></li>
+                            <li><a class="dropdown-item" href="/html/Tv/enTv.html">En television</a></li>
+                            <li><a class="dropdown-item" href="/html/Tv/valoradas.html">Mejor valoradas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/html/personas/populares.html">Populares</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/html/Peliculas/categorias.html">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/html/Peliculas/buscar.html">Buscar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="contenedor" id="verPelis">
-        <div class="navBar">
-            <div>
-                <!-- logo themoviedb -->
-            </div>
-            <div class="drop">
-                <button>Peliculas</button>
-                <div class="drop-cont">
-                    <a href="../html/Peliculas/pAhora.html">Populares</a>
-                    <a href="../html/Peliculas/pAhora.html">En cartelera hoy</a>
-                    <a href="../html/Peliculas/pProximas.html">Próximamente</a>
-                    <a href="../html/Peliculas/pValoradas.html">Mejor valoradas</a>
-                </div>
-            </div>
-            <div class="drop">
-                <button>Programas de televisión</button>
-                <div class="drop-cont">
-                    <a href="../html/Tv/populares.html">Populares</a>
-                    <a href="../html/Tv/ahora.html">Se emiten hoy</a>
-                    <a href="../html/Tv/enTv.html">En televisión</a>
-                    <a href="../html/Tv/valoradas.html">Mejor valoradas</a>
-                </div>
-            </div>
-            <div class="drop">
-                <button>Personas</button>
-                <div class="drop-cont">
-                    <a href="../html/personas/populares.html">Populares</a>
-                </div>
-            </div>
-            <div class="drop">
-                <button>Más</button>
-                <div class="drop-cont">
-                    <a href="#">Discusiones</a>
-                    <a href="#">Tabla de Clasificación</a>
-                    <a href="#">Soporte</a>
-                    <a href="#">API</a>
-                </div>
-            </div>
-            <div>
-                <!-- logo mas -->
-            </div>
-            <div>
-                <!-- cambio de lenguaje -->
-            </div>
-            <!-- <div>
-                <button>
-                    <a href="login.html">
-                        Acceder
-                    </a>
-                </button>
-            </div> -->
-        </div>
+        <button @click="back" class="btn btn-primary">Regresar</button>
+        <!-- pelicula -->
         <div v-if="media=='movie'">
-            <div class="super">
-                <div class="text-center">
-                    <h4>
-                        Pelicula:
-                    </h4>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <img class="img-thumbnail" v-bind:src="imgRoute + pelicula.poster_path" width="300">
-                    </div>
-                    <div class="col">
-                        <div>
-                            <strong>Titulo:</strong>
-                            <p>{{pelicula.title }}</p>
+            <div class="container">
+                <h4 class="text-white text-center">
+                    Pelicula:
+                </h4>
+                <div class="card mb-3" style="max-width: 1340px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img class="img-thumbnail" v-bind:src="imgRoute + pelicula.poster_path" width="300">
                         </div>
-                        <div>
-                            <strong>Resumen:</strong>
-                            <p>{{pelicula.overview }}</p>
-                        </div>
-                        <div>
-                            <em>
-                            <p>{{pelicula.tagline }}</p>
-                        </em>
-                        </div>
-                        <div>
-                            <strong>Popularidad:</strong>
-                            <p>{{ pelicula.popularity}}</p>
-                        </div>
-                        <div>
-                            <strong>Fecha de lanzamiento:</strong>
-                            <p> {{ pelicula.release_date}}</p>
-                        </div>
-                        <div>
-                            <strong>Votado:</strong>
-                            <p> {{ pelicula.vote_average}}%</p>
-                        </div>
-                        <div>
-                            <strong>Votos:</strong>
-                            <p>{{ pelicula.vote_count}}</p>
-                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{pelicula.title }}</h5>
+                                <p class="card-text">Resumen : {{pelicula.overview }}</p>
+                                <p class="text-dark">{{pelicula.tagline }}</p>
+                                <strong class="text-dark">Popularidad:</strong>
+                                <p class="text-dark">{{ pelicula.popularity}}</p>
+                                <strong class="text-dark">Fecha de lanzamiento:</strong>
+                                <p class="text-dark"> {{ pelicula.release_date}}</p>
+                                <strong class="text-dark">Votado:</strong>
+                                <p class="text-dark"> {{ pelicula.vote_average}}%</p>
+                                <strong class="text-dark">Votos:</strong>
+                                <p class="text-dark">{{ pelicula.vote_count}}</p>
 
-                        <button @click="back" class="btn btn-primary">Regresar</button>
-                        <div class="crewC">
-                            <div class="crew" v-for="a in reparto.crew">
-                                <button @click="informacion(a)">
-                                    <p>{{ a.name}}</p>
-                                </button>
-                                <p>{{ a.known_for_department}}</p>
                             </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="medio">
-                    <div class="castC">
-                        <div class="cast" v-for="a in reparto.cast" style="border: 2px solid white; width:100px;">
-                            <button @click="informacion(a)">
-                                <img v-bind:src="imgRoute + a.profile_path" width="50">
-                            </button>
-                            <p>{{ a.name}}</p>
-                            <p>{{ a.known_for_department}}</p>
-                        </div>
-                    </div>
-                    <div class="datos">
-                        <div>
-                            <strong>Estatus:</strong>
-                            <p> {{ pelicula.status}}</p>
-                        </div>
-                        <div>
-                            <strong>Presupuesto:</strong>
-                            <p> ${{ pelicula.budget}}</p>
-                        </div>
-                        <div>
-                            <strong>Ingresos:</strong>
-                            <p> ${{ pelicula.revenue}}</p>
-                        </div>
-                        <p v-for="p in claves">
-                            {{p.name}}
-                        </p>
-                    </div>
-                </div>
-                <div class="apartado">
-                    <div class="pelis">
-                        <div class="tarjetero">
-                            <div class="targeta" v-for="p in recomendaciones">
-                                <div class="text-center">
-                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="100" src=>
+                            <p><strong class="text-dark">Datos de la pelicula</strong></p>
+                            <div class="d-flex container">
+                                <div class="col-sm-2">
+                                    <strong class="text-dark">Estatus:</strong>
+                                    <p class="text-dark"> {{ pelicula.status}}</p>
                                 </div>
-                                <div>
-                                    <p style="color:black">{{p.name}}</p>
-                                    <p style="color:black">{{p.title}}</p>
-                                    <p style="color:black">{{p.release_date}}</p>
-                                    <p style="color:black">{{p.first_air_date}}</p>
+                                <div class="col-sm-2">
+                                    <strong class="text-dark">Presupuesto:</strong>
+                                    <p class="text-dark"> ${{ pelicula.budget}}</p>
                                 </div>
-                                <div class="text-center">
-                                    <button @click="detalles(p.id)" class="btn btn-primary">Detalles</button>
+                                <div class="col-sm-2">
+                                    <strong class="text-dark">Ingresos:</strong>
+                                    <p class="text-dark"> ${{ pelicula.revenue}}</p>
                                 </div>
+                                <!-- <p  class="text-dark" v-for="p in claves">
+                                {{p.name}}
+                            </p> -->
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <h3 class="text-white text-center"> Personajes </h3>
+
+                <div class="container d-flex overflow-scroll" style="height:200px; width:1000px;">
+                    <div class="" v-for="a in reparto.crew">
+                        <button @click="informacion(a)">
+                        <p>{{ a.name}}</p>
+                    </button>
+                        <p>{{ a.known_for_department}}</p>
+                    </div>
+                </div>
+                <h3 class="text-white text-center">Otros personajes relacionados</h3>
+                <div class="d-flex overflow-scroll">
+                    <div class="" v-for="a in reparto.cast" style="border: 2px solid white; width:100px;">
+                        <button @click="informacion(a)">
+                        <img v-bind:src="imgRoute + a.profile_path" width="50">
+                    </button>
+                        <p class="text-white text-center">{{ a.name}}</p>
+                        <p class="text-white text-center">{{ a.known_for_department}}</p>
+                    </div>
+                </div>
+
+                <h1 class="text-center text-white">Otras peliculas</h1>
+
+                <div class="d-flex overflow-scroll pb-5">
+                    <div class="" v-for="p in recomendaciones">
+                        <div class="">
+                            <img class="poster" v-bind:src="imgRoute + p.poster_path" width="100" src=>
+                        </div>
+                        <div>
+                            <p class="text-white">{{p.name}}</p>
+                            <p class="text-white">{{p.title}}</p>
+                            <p class="text-white">{{p.release_date}}</p>
+                            <p class="text-white">{{p.first_air_date}}</p>
+                        </div>
+                        <div class="text-center">
+                            <button @click="detalles(p.id)" class="btn btn-primary">Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-white text-center pb-5">
+                    Trailers
+                </h3>
             </div>
         </div>
+
         <div v-if="media=='tv'">
             <div class="super">
                 <div class="text-center">
-                    <h4>
+                    <h4 class="text-white text-center">
                         Serie:
                     </h4>
                 </div>
@@ -180,12 +166,12 @@
                     </div>
                     <div class="col">
                         <div>
-                            <strong>Titulo:</strong>
-                            <p>{{serie.name }}</p>
+                            <strong class="text-white">Titulo:</strong>
+                            <p class="text-white">{{serie.name }}</p>
                         </div>
                         <div>
-                            <strong>Resumen:</strong>
-                            <p>
+                            <strong class="text-white">Resumen:</strong>
+                            <p class="text-white">
                                 {{serie.overview}}
                             </p>
                         </div>
@@ -195,20 +181,20 @@
                         </em>
                         </div>
                         <div>
-                            <strong>Popularidad:</strong>
-                            <p>{{ serie.popularity}}</p>
+                            <strong class="text-white">Popularidad:</strong>
+                            <p class="text-white">{{ serie.popularity}}</p>
                         </div>
                         <div>
-                            <strong>Fecha de lanzamiento:</strong>
-                            <p> {{ serie.first_air_date}}</p>
+                            <strong class="text-white">Fecha de lanzamiento:</strong>
+                            <p class="text-white"> {{ serie.first_air_date}}</p>
                         </div>
                         <div>
-                            <strong>Votado:</strong>
-                            <p> {{ serie.vote_average}}%</p>
+                            <strong class="text-white">Votado:</strong>
+                            <p class="text-white"> {{ serie.vote_average}}%</p>
                         </div>
                         <div>
-                            <strong>Votos:</strong>
-                            <p>{{ serie.vote_count}}</p>
+                            <strong class="text-white">Votos:</strong>
+                            <p class="text-white">{{ serie.vote_count}}</p>
                         </div>
 
                         <button @click="back" class="btn btn-primary">Regresar</button>
@@ -237,20 +223,20 @@
                     </div>
                     <div class="datos">
                         <div>
-                            <strong>Nombre original:</strong>
-                            <p> {{ serie.original_name}}</p>
+                            <strong class="text-white">Nombre original:</strong>
+                            <p class="text-white"> {{ serie.original_name}}</p>
                         </div>
                         <div>
-                            <strong>Estado:</strong>
-                            <p> {{ serie.status}}</p>
+                            <strong class="text-white">Estado:</strong>
+                            <p class="text-white"> {{ serie.status}}</p>
                         </div>
                         <div>
-                            <strong>Tipo:</strong>
+                            <strong class="text-white">Tipo:</strong> class="text-white"
                             <p> {{ serie.type}}</p>
                         </div>
                         <div>
-                            <strong>Idioma original:</strong>
-                            <p> {{ serie.original_language}}</p>
+                            <strong class="text-white">Idioma original:</strong>
+                            <p class="text-white"> {{ serie.original_language}}</p>
                         </div>
                     </div>
                 </div>
@@ -296,7 +282,10 @@
                 </div>
             </div>
         </div>
-        <div id="overlay-content"></div>
+        <!-- trailer -->
+        <div class="d-flex justify-content-center" id="overlay-content">
+
+        </div>
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>

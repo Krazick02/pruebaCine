@@ -17,7 +17,6 @@
     height: 500px;
     width: 500px;
     overflow: auto;
-    
 }
 
 .perfiles {
@@ -181,7 +180,6 @@
     height: 100%;
 }
 
-
 .super {
     display: flex;
     flex-direction: column;
@@ -237,4 +235,31 @@
 .fotoPerfil {
     display: flex;
     width: 300px;
+}
+
+.ejemplo {
+    height: 91vh;
+}
+
+.logo {
+    width: 100px;
+}
+
+.tarjetasp {
+    margin-bottom: 20px;
+}
+
+.selector {
+    margin: 5px;
+}
+
+.busqueda {
+    height: 20vh;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.categorizador {
+    height: 20vh;
 }

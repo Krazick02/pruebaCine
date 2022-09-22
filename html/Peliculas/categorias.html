@@ -50,17 +50,32 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid" id="buscando">
+    <div class="container-fluid categorizador" id="buscando">
         <div class="row ejemplo text-center">
             <div class="col busqueda align-items-center">
-                <h5 style="color: white;">Buscar :
-
-                    <input type="text" v-model='busqueda' id="busqueda"> en
-                    <button @click="tv" class="btn btn-success">Series</button>
-                    <button @click="movie" class="btn btn-success">Películas</button>
-                    <!-- <button @click="palabra" class="btn btn-success">Palabras Clave</button>
-                    <button @click="movie" class="btn btn-success">Categorias</button> -->
-                </h5>
+                <h3 style="color: white;">Contamos con las siguientes categorias:
+                </h3>
+                <div>
+                    <button type="button" @click="coincidencias(28)" class="btn selector btn-warning">Accion</button>
+                    <button type="button" @click="coincidencias(12)" class="btn selector btn-warning">Aventura</button>
+                    <button type="button" @click="coincidencias(16)" class="btn selector btn-warning">Animacion</button>
+                    <button type="button" @click="coincidencias(35)" class="btn selector btn-warning">Comedia</button>
+                    <button type="button" @click="coincidencias(80)" class="btn selector btn-warning">Crimen</button>
+                    <button type="button" @click="coincidencias(99)" class="btn selector btn-warning">Documentales</button>
+                    <button type="button" @click="coincidencias(18)" class="btn selector btn-warning">Drama</button>
+                    <button type="button" @click="coincidencias(10751)" class="btn selector btn-warning">Familia</button>
+                    <button type="button" @click="coincidencias(14)" class="btn selector btn-warning">Fantasia</button>
+                    <button type="button" @click="coincidencias(36)" class="btn selector btn-warning">Historia</button>
+                    <button type="button" @click="coincidencias(27)" class="btn selector btn-warning">Horror</button>
+                    <button type="button" @click="coincidencias(10402)" class="btn selector btn-warning">Musica</button>
+                    <button type="button" @click="coincidencias(9648)" class="btn selector btn-warning">Misterio</button>
+                    <button type="button" @click="coincidencias(10749)" class="btn selector btn-warning">Romance</button>
+                    <button type="button" @click="coincidencias(878)" class="btn selector btn-warning">Ciencia ficcion</button>
+                    <button type="button" @click="coincidencias(10770)" class="btn selector btn-warning">Pelicula de tv</button>
+                    <button type="button" @click="coincidencias(53)" class="btn selector btn-warning">Suspenso</button>
+                    <button type="button" @click="coincidencias(10752)" class="btn selector btn-warning">Guerra</button>
+                    <button type="button" @click="coincidencias(37)" class="btn selector btn-warning">Occidental</button>
+                </div>
             </div>
             <div class="row portador">
                 <div class="col-sm-4 col-lg-3 col-xl-2 tarjetasP text-center" v-for="p in resultado">
@@ -76,20 +91,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="targeta" v-for="p in resultado">
-            <div class="text-center">
-                <img class="poster" v-bind:src="imgRoute + p.poster_path" width="100" src=>
-            </div>
-            <div>
-                <p style="color:black">{{p.name}}</p>
-                <p style="color:black">{{p.title}}</p>
-                <p style="color:black">{{p.release_date}}</p>
-                <p style="color:black">{{p.first_air_date}}</p>
-            </div>
-            <div class="text-center">
-                <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
-            </div>
-        </div> -->
+
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>

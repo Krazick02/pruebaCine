@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Lista de Populares</title>
+</head>
+<div class="modal" tabindex="-1" id="exampleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="text-center">Bienvenido a <strong>themoviedb</strong>!</p>
+                <p class="text-center">Disfruta viendo lo que buscas</p>
+                <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img class="img-fluid" src="logo.png" style="width:450px; height:250px;">
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#exampleModal').modal('show');
+    });
+</script>
+
+<body class="yep bg-dark">
+    <div class="contenedor" id="verPelis">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark mb-5 ">
+            <div class="container-fluid">
+                <img class="img-fluid" src="logo.png" alt="">
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#"> <button type="button" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                        </svg>
+                        Home
+                    </button></a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-film" viewBox="0 0 16 16">
+                                <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/>
+                            </svg>
+                            Películas
+                        </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="../html/Peliculas/pPopulares.html">Populares</a></li>
+                                    <li><a class="dropdown-item" href="../html/Peliculas/pAhora.html">En cartelera hoy</a></li>
+                                    <li><a class="dropdown-item" href="../html/Peliculas/pProximas.html">Proximamente</a></li>
+                                    <li><a class="dropdown-item" href="../html/Peliculas/pValoradas.html">Mejor valoradas</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../html/personas/populares.html"><button type="button" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                        </svg>
+                        Personas
+                    </button></a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                            </svg>
+                            Más
+                        </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Discusiones</a></li>
+                                    <li><a class="dropdown-item" href="#">Tabla de Clasificación</a></li>
+                                    <li><a class="dropdown-item" href="#">Soporte</a></li>
+                                    <li><a class="dropdown-item" href="#">API</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../html/peliculas/buscar.html"><button type="button" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                        </svg>
+                        Buscar
+                    </button></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="botones">
+            <button class="btn btn-outline-primary" @click="populares='streaming'">Streaming</button>
+            <button class="btn btn-outline-primary" @click="populares='tv' , media='tv'">TV</button>
+            <button class="btn btn-outline-primary" @click="populares='alquiler', media='movie'">Alquiler</button>
+            <button class="btn btn-outline-primary" @click="populares='cine', media='movie'">Cine</button>
+        </div>
+        <div class="">
+            <div class="populares mb-5" v-if="populares=='streaming'">
+                <div class="text-center">
+                    <h3 class="text-white">
+                        Películas más populares en streaming
+                    </h3>
+                </div>
+                <div class="ver">
+                    <div class="pelis">
+                        <div class="d-flex overflow-scroll">
+                            <div class="targeta" v-for="p in poStreaming ">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="240" src=>
+                                </div>
+                                <div>
+                                    <p class="text-white">{{p.name}}</p>
+                                    <p class="text-white">{{p.title}}</p>
+                                    <p class="text-white">{{p.release_date}}</p>
+                                    <p class="text-white">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="populares" v-if="populares=='tv'">
+                <div class="ver">
+                    <div class="text-center">
+                        <h3 class="text-white">
+                            Populares en TV
+                        </h3>
+                    </div>
+                    <div class="pelis">
+                        <div class="d-flex overflow-scroll">
+                            <div class="targeta" v-for="p in poTv">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="240" src=>
+                                </div>
+                                <div>
+                                    <p class="text-white">{{p.name}}</p>
+                                    <p class="text-white">{{p.title}}</p>
+                                    <p class="text-white">{{p.release_date}}</p>
+                                    <p class="text-white">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="populares" v-if="populares=='alquiler'">
+                <div class="ver">
+                    <div class="text-center">
+                        <h3 class="text-white">
+                            Películas más populares en alquiler
+                        </h3>
+                    </div>
+                    <div class="pelis">
+                        <div class="d-flex overflow-scroll">
+                            <div class="targeta" v-for="p in poAlquiler">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="240" src=>
+                                </div>
+                                <div>
+                                    <p class="text-white">{{p.name}}</p>
+                                    <p class="text-white">{{p.title}}</p>
+                                    <p class="text-white">{{p.release_date}}</p>
+                                    <p class="text-white">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="populares" v-if="populares=='cine'">
+                <div class="ver">
+                    <div class="text-center">
+                        <h3 class="text-white">
+                            Películas más populares en cine
+                        </h3>
+                    </div>
+                    <div class="pelis">
+                        <div class="d-flex overflow-scroll">
+                            <div class="targeta" v-for="p in poCine">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="240" src=>
+                                </div>
+                                <div>
+                                    <p class="text-white">{{p.name}}</p>
+                                    <p class="text-white">{{p.title}}</p>
+                                    <p class="text-white">{{p.release_date}}</p>
+                                    <p class="text-white">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="botonera">
+            <button class="btn btn-outline-primary" @click="gratis='tv', media='tv'">TV</button>
+            <button class="btn btn-outline-primary" @click="gratis='peliculas', media='movie'">Películas</button>
+        </div>
+        <div class="apartado">
+            <div class="populares" v-if="gratis=='peliculas'">
+                <div class="ver">
+                    <div class="text-center">
+                        <h3 class="text-white">
+                            Ver gratis en películas
+                        </h3>
+                    </div>
+                    <div class="pelis">
+                        <div class="d-flex overflow-scroll">
+                            <div class="targeta" v-for="p in grPeliculas">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="240" src=>
+                                </div>
+                                <div>
+                                    <p class="text-white">{{p.name}}</p>
+                                    <p class="text-white">{{p.title}}</p>
+                                    <p class="text-white">{{p.release_date}}</p>
+                                    <p class="text-white">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="populares" v-if="gratis=='tv'">
+                <div class="ver">
+                    <div class="text-center">
+                        <h3 class="text-white">
+                            Ver gratis en TV
+                        </h3>
+                    </div>
+                    <div class="pelis">
+                        <div class="d-flex overflow-scroll">
+                            <div class="targeta" v-for="p in grTv">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="240" src=>
+                                </div>
+                                <div>
+                                    <p class="text-white">{{p.name}}</p>
+                                    <p class="text-white">{{p.title}}</p>
+                                    <p class="text-white">{{p.release_date}}</p>
+                                    <p class="text-white">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="apartado">
+
+            <div class="botonera">
+                <button class="btn btn-outline-primary" @click="tendencia='hoy'">Hoy</button>
+                <button class="btn btn-outline-primary" @click="tendencia='semana'">Esta Semana</button>
+            </div>
+            <div class="populares" v-if="tendencia=='hoy'">
+                <div class="ver">
+                    <div class="text-center">
+                        <h3 class="text-white">
+                            Tendencias hoy
+                        </h3>
+                    </div>
+                    <div class="pelis">
+                        <div class="d-flex overflow-scroll">
+                            <div class="targeta" v-for="p in tenHoy">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="240" src=>
+                                </div>
+                                <div>
+                                    <p class="text-white">{{p.name}}</p>
+                                    <p class="text-white">{{p.title}}</p>
+                                    <p class="text-white">{{p.release_date}}</p>
+                                    <p class="text-white">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="populares" v-if="tendencia=='semana'">
+                <div class="ver">
+                    <div class="text-center">
+                        <h3 class="text-white">
+                            Tendencias esta semana
+                        </h3>
+                    </div>
+                    <div class="pelis">
+                        <div class="d-flex overflow-scroll">
+                            <div class="targeta" v-for="p in tenSem">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="240" src=>
+                                </div>
+                                <div>
+                                    <p class="text-white">{{p.name}}</p>
+                                    <p class="text-white">{{p.title}}</p>
+                                    <p class="text-white">{{p.release_date}}</p>
+                                    <p class="text-white">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="../js/pPopulares.js"></script>
+</body>
+
+</html>

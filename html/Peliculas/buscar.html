@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/peliculas.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Top rated</title>
+</head>
+
+<body class="yep">
+    <div class="contenedor" id="buscando">
+        <div class="navBar">
+            <div>
+                <!-- logo themoviedb -->
+            </div>
+            <div class="drop">
+                <button>Películas</button>
+                <div class="drop-cont">
+                    <a href="pPopulares.html">Populares</a>
+                    <a href="pAhora.html">En cartelera hoy</a>
+                    <a href="pProximas.html">Próximamente</a>
+                    <a href="pValoradas.html">Mejor valoradas</a>
+                </div>
+            </div>
+            <div class="drop">
+                <button>Programas de televisión</button>
+                <div class="drop-cont">
+                    <a href="../Tv/populares.html">Populares</a>
+                    <a href="../Tv/ahora.html">Se emiten hoy</a>
+                    <a href="../Tv/enTv.html">En televisión</a>
+                    <a href="../Tv/valoradas.html">Mejor valoradas</a>
+                </div>
+            </div>
+            <div class="drop">
+                <button>Personas</button> 
+                <div class="drop-cont">
+                    <a href="../personas/populares.html">Populares</a>
+                </div>
+            </div>
+            <div class="drop">
+                <button>Más</button>
+                <div class="drop-cont">
+                    <a href="#">Discuciones</a>
+                    <a href="#">Tabla de clasificación</a>
+                    <a href="#">Soporte</a>
+                    <a href="#">API</a>
+                </div>
+            </div>
+            
+        </div>
+        <div style="height: 500px;">
+            <h1>
+                <form action="">
+                    <button @click="buscar">    
+                        <input type="text" v-model='busqueda' id="busqueda">
+                    </button>
+                </form>
+                <div>
+                    Buscar en :
+                    <button @click="tv">Series</button>
+                    <button @click="movie">Películas</button>
+                </div>
+
+            </h1>
+        </div>
+        <div class="">
+            <div class="">
+                <div class="">
+                    <div class="targeta" v-for="p in resultado">
+                        <div class="text-center">
+                            <img class="poster" v-bind:src="imgRoute + p.poster_path" width="100" src=>
+                        </div>
+                        <div>
+                            <p style="color:black">{{p.name}}</p>
+                            <p style="color:black">{{p.title}}</p>
+                            <p style="color:black">{{p.release_date}}</p>
+                            <p style="color:black">{{p.first_air_date}}</p>
+                        </div>
+                        <div class="text-center">
+                            <button @click="detalles(p)" class="btn btn-primary">Detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="../../js/peliculas/buscar.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/peliculas.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Detalles</title>
+</head>
+
+<body class="yep">
+    <div class="contenedor" id="verPelis">
+        <div class="navBar">
+            <div>
+                <!-- logo themoviedb -->
+            </div>
+            <div class="drop">
+                <button>Peliculas</button>
+                <div class="drop-cont">
+                    <a href="../html/Peliculas/pAhora.html">Populares</a>
+                    <a href="../html/Peliculas/pAhora.html">En cartelera hoy</a>
+                    <a href="../html/Peliculas/pProximas.html">Próximamente</a>
+                    <a href="../html/Peliculas/pValoradas.html">Mejor valoradas</a>
+                </div>
+            </div>
+            <div class="drop">
+                <button>Programas de televisión</button>
+                <div class="drop-cont">
+                    <a href="../html/Tv/populares.html">Populares</a>
+                    <a href="../html/Tv/ahora.html">Se emiten hoy</a>
+                    <a href="../html/Tv/enTv.html">En televisión</a>
+                    <a href="../html/Tv/valoradas.html">Mejor valoradas</a>
+                </div>
+            </div>
+            <div class="drop">
+                <button>Personas</button>
+                <div class="drop-cont">
+                    <a href="../html/personas/populares.html">Populares</a>
+                </div>
+            </div>
+            <div class="drop">
+                <button>Más</button>
+                <div class="drop-cont">
+                    <a href="#">Discusiones</a>
+                    <a href="#">Tabla de Clasificación</a>
+                    <a href="#">Soporte</a>
+                    <a href="#">API</a>
+                </div>
+            </div>
+            <div>
+                <!-- logo mas -->
+            </div>
+            <div>
+                <!-- cambio de lenguaje -->
+            </div>
+            <!-- <div>
+                <button>
+                    <a href="login.html">
+                        Acceder
+                    </a>
+                </button>
+            </div> -->
+        </div>
+        <div v-if="media=='movie'">
+            <div class="super">
+                <div class="text-center">
+                    <h4>
+                        Pelicula:
+                    </h4>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <img class="img-thumbnail" v-bind:src="imgRoute + pelicula.poster_path" width="300">
+                    </div>
+                    <div class="col">
+                        <div>
+                            <strong>Titulo:</strong>
+                            <p>{{pelicula.title }}</p>
+                        </div>
+                        <div>
+                            <strong>Resumen:</strong>
+                            <p>{{pelicula.overview }}</p>
+                        </div>
+                        <div>
+                            <em>
+                            <p>{{pelicula.tagline }}</p>
+                        </em>
+                        </div>
+                        <div>
+                            <strong>Popularidad:</strong>
+                            <p>{{ pelicula.popularity}}</p>
+                        </div>
+                        <div>
+                            <strong>Fecha de lanzamiento:</strong>
+                            <p> {{ pelicula.release_date}}</p>
+                        </div>
+                        <div>
+                            <strong>Votado:</strong>
+                            <p> {{ pelicula.vote_average}}%</p>
+                        </div>
+                        <div>
+                            <strong>Votos:</strong>
+                            <p>{{ pelicula.vote_count}}</p>
+                        </div>
+
+                        <button @click="back" class="btn btn-primary">Regresar</button>
+                        <div class="crewC">
+                            <div class="crew" v-for="a in reparto.crew">
+                                <button @click="informacion(a)">
+                                    <p>{{ a.name}}</p>
+                                </button>
+                                <p>{{ a.known_for_department}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="medio">
+                    <div class="castC">
+                        <div class="cast" v-for="a in reparto.cast" style="border: 2px solid white; width:100px;">
+                            <button @click="informacion(a)">
+                                <img v-bind:src="imgRoute + a.profile_path" width="50">
+                            </button>
+                            <p>{{ a.name}}</p>
+                            <p>{{ a.known_for_department}}</p>
+                        </div>
+                    </div>
+                    <div class="datos">
+                        <div>
+                            <strong>Estatus:</strong>
+                            <p> {{ pelicula.status}}</p>
+                        </div>
+                        <div>
+                            <strong>Presupuesto:</strong>
+                            <p> ${{ pelicula.budget}}</p>
+                        </div>
+                        <div>
+                            <strong>Ingresos:</strong>
+                            <p> ${{ pelicula.revenue}}</p>
+                        </div>
+                        <p v-for="p in claves">
+                            {{p.name}}
+                        </p>
+                    </div>
+                </div>
+                <div class="apartado">
+                    <div class="pelis">
+                        <div class="tarjetero">
+                            <div class="targeta" v-for="p in recomendaciones">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="100" src=>
+                                </div>
+                                <div>
+                                    <p style="color:black">{{p.name}}</p>
+                                    <p style="color:black">{{p.title}}</p>
+                                    <p style="color:black">{{p.release_date}}</p>
+                                    <p style="color:black">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p.id)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-if="media=='tv'">
+            <div class="super">
+                <div class="text-center">
+                    <h4>
+                        Serie:
+                    </h4>
+                </div>
+                <div class="">
+                    <div class="col">
+                        <img class="img-thumbnail" v-bind:src="imgRoute + serie.poster_path" width="300">
+                    </div>
+                    <div class="col">
+                        <div>
+                            <strong>Titulo:</strong>
+                            <p>{{serie.name }}</p>
+                        </div>
+                        <div>
+                            <strong>Resumen:</strong>
+                            <p>
+                                {{serie.overview}}
+                            </p>
+                        </div>
+                        <div>
+                            <em>
+                            <p>{{serie.tagline }}</p>
+                        </em>
+                        </div>
+                        <div>
+                            <strong>Popularidad:</strong>
+                            <p>{{ serie.popularity}}</p>
+                        </div>
+                        <div>
+                            <strong>Fecha de lanzamiento:</strong>
+                            <p> {{ serie.first_air_date}}</p>
+                        </div>
+                        <div>
+                            <strong>Votado:</strong>
+                            <p> {{ serie.vote_average}}%</p>
+                        </div>
+                        <div>
+                            <strong>Votos:</strong>
+                            <p>{{ serie.vote_count}}</p>
+                        </div>
+
+                        <button @click="back" class="btn btn-primary">Regresar</button>
+                        <!-- <div class="crewC">
+                            <div class="crew" v-for="a in reparto.crew">
+                                <p>{{ a.name}}</p>
+                                <p>{{ a.known_for_department}}</p>
+                            </div>
+                        </div> -->
+
+                        <p v-for="p in claves">
+                            {{p.name}}
+                        </p>
+
+                    </div>
+                </div>
+                <div class="medio">
+                    <div class="castC">
+                        <div class="cast" v-for="a in reparto.cast" style="border: 2px solid white; width:100px;">
+                            <button @click="informacion(a)">
+                                <img v-bind:src="imgRoute + a.profile_path" width="50">
+                            </button>
+                            <p>{{ a.name}}</p>
+                            <p>{{ a.known_for_department}}</p>
+                        </div>
+                    </div>
+                    <div class="datos">
+                        <div>
+                            <strong>Nombre original:</strong>
+                            <p> {{ serie.original_name}}</p>
+                        </div>
+                        <div>
+                            <strong>Estado:</strong>
+                            <p> {{ serie.status}}</p>
+                        </div>
+                        <div>
+                            <strong>Tipo:</strong>
+                            <p> {{ serie.type}}</p>
+                        </div>
+                        <div>
+                            <strong>Idioma original:</strong>
+                            <p> {{ serie.original_language}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="apartado">
+                    <P>Temporadas</P>
+                    <div class="pelis">
+                        <div class="tarjetero">
+                            <div class="targeta" v-for="s in serie.seasons">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + s.poster_path" width="100" src=>
+                                </div>
+                                <div>
+                                    <p style="color:black">{{s.name}}</p>
+                                    <p style="color:black">{{s.release_date}}</p>
+                                    <p style="color:black">{{s.episode_count}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detallesSeason(s.season_number)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="apartado">
+                    <div class="pelis">
+                        <div class="tarjetero">
+                            <div class="targeta" v-for="p in recomendaciones">
+                                <div class="text-center">
+                                    <img class="poster" v-bind:src="imgRoute + p.poster_path" width="100" src=>
+                                </div>
+                                <div>
+                                    <p style="color:black">{{p.name}}</p>
+                                    <p style="color:black">{{p.title}}</p>
+                                    <p style="color:black">{{p.release_date}}</p>
+                                    <p style="color:black">{{p.first_air_date}}</p>
+                                </div>
+                                <div class="text-center">
+                                    <button @click="detalles(p.id)" class="btn btn-primary">Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="overlay-content"></div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="../js/pelicula.js"></script>
+</body>
+
+</html>

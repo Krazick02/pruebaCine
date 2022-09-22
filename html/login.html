@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="contenedor" id="myapp">
+        <div class="row">
+            <div class="col" width="600">
+                
+                <form action="" id="form">
+                    <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+
+                    <div class="mb-4">
+                        <label for="email" class="form-label">
+                            Nombre de Usuario:
+                        </label>
+                        <input type="text" v-model="usernameF" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">
+                            Contraseña:
+                        </label>
+                        <input type="password" name="password" v-model="passwordF" class="form-control" required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button @click="login" class="btn btn-primary">Iniciar Sesión</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/login.js"></script>
+
+</body>
+
+</html>
